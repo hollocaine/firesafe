@@ -1,7 +1,8 @@
 const questions = [
   {
-    location_id: '1',
-    user_id: '1',
+    id: 1,
+    location_id: 1,
+    user_id: 1,
     questions: [
       {
         question_id: '1',
@@ -18,8 +19,9 @@ const questions = [
     ],
   },
   {
-    location_id: '2',
-    user_id: '1',
+    id: 2,
+    location_id: 2,
+    user_id: 1,
     questions: [
       {
         question_id: '1',
@@ -36,8 +38,9 @@ const questions = [
     ],
   },
   {
-    location_id: '3',
-    user_id: '1',
+    id: 3,
+    location_id: 3,
+    user_id: 1,
     questions: [
       {
         question_id: '1',

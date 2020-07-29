@@ -10,7 +10,7 @@
     "node": "12.6.x"
   },
   "keywords": [],
-  "author": "Mosh Hamedani",
+  "author": "Alan Flynn",
   "license": "ISC",
   "dependencies": {
     "apisauce": "^1.1.1",

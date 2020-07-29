@@ -17,6 +17,12 @@ const levels = [
     label: 'Low',
     value: 3,
   },
+  {
+    backgroundColor: '#51de26',
+    icon: 'checkmark-circle-sharp',
+    label: 'Ok',
+    value: 4,
+  },
 ];
 
 const getLevels = () => levels;

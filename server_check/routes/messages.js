@@ -11,7 +11,7 @@ const auth = require('../middleware/auth');
 const validateWith = require('../middleware/validation');
 
 const schema = {
-  locationId: Joi.number().required(),
+  location_id: Joi.number().required(),
   message: Joi.string().required(),
 };
 
@@ -25,7 +25,7 @@ router.get('/', auth, (req, res) => {
 
   const resources = messages.map((message) => ({
     id: message.id,
-    locationId: message.locationId,
+    location_id: message.location_id,
     dateTime: message.dateTime,
     content: message.content,
     fromUser: mapUser(message.fromuser_id),
@@ -36,10 +36,10 @@ router.get('/', auth, (req, res) => {
 });
 
 router.post('/', [auth, validateWith(schema)], async (req, res) => {
-  const { locationId, message } = req.body;
+  const { location_id, message } = req.body;
 
-  const location = locationsStore.getLocation(locationId);
-  if (!location) return res.status(400).send({ error: 'Invalid locationId.' });
+  const location = locationsStore.getLocation(location_id);
+  if (!location) return res.status(400).send({ error: 'Invalid location_id.' });
 
   const targetUser = usersStore.getUserById(parseInt(location.user_id));
   if (!targetUser) return res.status(400).send({ error: 'Invalid user_id.' });
@@ -47,7 +47,7 @@ router.post('/', [auth, validateWith(schema)], async (req, res) => {
   messagesStore.add({
     fromuser_id: req.user.user_id,
     touser_id: location.user_id,
-    locationId,
+    location_id,
     content: message,
   });
 
