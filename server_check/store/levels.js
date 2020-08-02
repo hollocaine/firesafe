@@ -27,7 +27,7 @@ const levels = [
 
 const getLevels = () => levels;
 
-const getLevel = (id) => levels.find((c) => c.id === id);
+const getLevel = (id) => levels.find((c) => c.value === id);
 
 module.exports = {
   getLevels,
