@@ -28,8 +28,8 @@ router.get('/', auth, (req, res) => {
     location_id: message.location_id,
     dateTime: message.dateTime,
     content: message.content,
-    fromUser: mapUser(message.fromuser_id),
-    toUser: mapUser(message.touser_id),
+    fromUser: mapUser(message.fromUserId),
+    toUser: mapUser(message.toUserId),
   }));
 
   res.send(resources);
@@ -45,8 +45,8 @@ router.post('/', [auth, validateWith(schema)], async (req, res) => {
   if (!targetUser) return res.status(400).send({ error: 'Invalid user_id.' });
 
   messagesStore.add({
-    fromuser_id: req.user.user_id,
-    touser_id: location.user_id,
+    fromUser: req.user.user_id,
+    toUser: location.user_id,
     location_id,
     content: message,
   });
