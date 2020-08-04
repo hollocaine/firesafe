@@ -1,11 +1,11 @@
 const locations = [
   {
-    location_id: 1,
+    id: 1,
     loc_name: 'Offices',
     user_id: 1,
   },
   {
-    location_id: 2,
+    id: 2,
     loc_name: 'Warehouse',
     user_id: 1,
   },

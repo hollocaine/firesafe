@@ -24,12 +24,12 @@ const schema = {
   question_id: Joi.number().required().min(1),
   location_id: Joi.number().required().min(1),
   level_id: Joi.number().required().min(1),
+  date: Joi.string().required().min(10).max(10),
 };
 
 const validate_level_id = (req, res, next) => {
   if (!levelsStore.getLevel(parseInt(req.body.level_id)))
     return res.status(400).send({ error: 'Invalid level_id.' });
-
   next();
 };
 
@@ -57,11 +57,13 @@ router.post(
   ],
 
   async (req, res) => {
+    console.log(req + 'here');
     const report = {
       title: req.body.title,
       location_id: parseInt(req.body.location_id),
       question_id: parseInt(req.body.question_id),
       level_id: parseInt(req.body.level_id),
+      date: req.body.date,
       description: req.body.description,
     };
     report.images = req.images.map((fileName) => ({ fileName: fileName }));
